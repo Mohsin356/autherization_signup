@@ -7,12 +7,14 @@ class CustomTextField extends StatelessWidget {
         required this.title,
         this.inputType,
         required this.controller,required this.visible,
+        this.validator
       })
       : super(key: key);
   final String title;
   final TextInputType? inputType;
   final TextEditingController controller;
   final bool visible;
+  final String? Function(String?)? validator;
 
 
   @override
@@ -29,6 +31,7 @@ class CustomTextField extends StatelessWidget {
                 controller: controller,
                 keyboardType: inputType,
                 obscureText: visible,
+                validator: validator,
                 style: const TextStyle(color: Colors.white),
                 cursorColor: Colors.white,
                 decoration: InputDecoration(
