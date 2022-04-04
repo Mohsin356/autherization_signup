@@ -75,7 +75,9 @@ class _SignupState extends State<Signup> {
                         if (val!.isEmpty){
                           return "Fill out this field";}
 
-                        else if(!RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(val
+                        else if(!RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)'
+                        r'|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|'
+                        r'(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(val
                         )) {
                           return 'Please enter correct email';
                         }
@@ -109,7 +111,8 @@ class _SignupState extends State<Signup> {
                         if(pass!.isEmpty){
                           return "Password can not be empty";
                         }
-                        else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(pass)) {
+                        else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(pass)) {
                           return 'Must contain minimum 8 characters, at least one letter\n and one number';
                         }
                         return null;
@@ -126,7 +129,8 @@ class _SignupState extends State<Signup> {
                           return "Password can not be empty";
                         }
                         else if (password1.text!=pass2){return "Passwords don't match";}
-                        else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$').hasMatch(pass2)) {
+                        else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(pass2)) {
                           return 'Must contain minimum 8 characters, at least one letter\n and one number';
                         }
                         return null;
@@ -137,21 +141,15 @@ class _SignupState extends State<Signup> {
                       height: 20,
                     ),
                     CommonButton(buttonText: "Sign up",btnAlign: Alignment.center,func: ()
-
                         async {
                           FirebaseAuth auth = FirebaseAuth.instance;
-                          User? user;
                           if (_formKey.currentState!.validate()) {
                             try {
-                              UserCredential userCredential = await FirebaseAuth
-                                  .instance.createUserWithEmailAndPassword(
+                              UserCredential userCredential = await auth.createUserWithEmailAndPassword(
                                 email: email.text.trim(),
                                 password: password1.text.trim(),
                               );
-                              user = userCredential.user;
-                              await user!.updateDisplayName(nameController.text.trim());
-                              await user.reload();
-                              user = auth.currentUser;
+
                             } on FirebaseAuthException catch (e) {
                               if (e.code == 'weak-password') {
                                 print('The password provided is too weak.');
@@ -179,8 +177,6 @@ class _SignupState extends State<Signup> {
                               },
                             );
                           }
-
-                      return user;
                           },),
 
                     const SizedBox(

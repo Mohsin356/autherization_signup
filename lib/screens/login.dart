@@ -1,4 +1,4 @@
-import 'dart:developer';
+import 'dart:math';
 
 import 'package:autherization/screens/feed.dart';
 import 'package:autherization/screens/signup.dart';
@@ -28,7 +28,6 @@ class _WelcomeState extends State<Welcome> {
 
       backgroundColor: Colors.green,
       body: SafeArea(
-
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -68,25 +67,25 @@ class _WelcomeState extends State<Welcome> {
                 ),
               ),
               const SizedBox(height: 20,),
-              CommonButton(buttonText: "Sign in",func: () async {
+              CommonButton(buttonText: "Sign in",func: ()async{
+                try {
+                  UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailController.text.trim(),
+                      password: passController.text.trim()
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'user-not-found') {
+                    print('No user found for that email.');
+                  } else if (e.code == 'wrong-password') {
+                    print('Wrong password provided for that user.');
+                  }
+                }
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const Feed()),
                 );
-                // try {
-                //   UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                //       email: emailController.text.trim(),
-                //       password: passController.text.trim(),
-                //   );
-                //   log("$userCredential");
-                // } on FirebaseAuthException catch (e) {
-                //   if (e.code == 'user-not-found') {
-                //     print('No user found for that email.');
-                //   } else if (e.code == 'wrong-password') {
-                //     print('Wrong password provided for that user.');
-                //   }
-                // }
               },btnAlign: Alignment.center,),
+
               const SizedBox(height: 10,),
               Center(
                 child: RichText(

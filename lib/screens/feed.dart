@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:autherization/firebase_options.dart';
+import 'package:autherization/screens/signup.dart';
 
 class Feed extends StatefulWidget {
   const Feed({Key? key}) : super(key: key);
