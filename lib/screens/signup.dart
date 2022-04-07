@@ -108,12 +108,10 @@ class _SignupState extends State<Signup> {
                                Navigator.push(
                                  context,
                                  MaterialPageRoute(
-                                     builder: (context) => const Welcome()),
-                               );
+                                     builder: (context) => const Welcome()),);
                              },
                              child: const Text('Back to Login',style: TextStyle(color: Colors.white, fontSize: 18,),),
                            ),
-
                     ),
                     const SizedBox(
                       height: 10,
