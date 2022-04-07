@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:autherization/screens/feed.dart';
 import 'package:autherization/screens/signup.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +6,6 @@ import 'package:autherization/widgets/CommonButtons.dart';
 import 'package:autherization/widgets/TextFields.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 
 
 class Welcome extends StatefulWidget {
@@ -49,20 +46,7 @@ class _WelcomeState extends State<Welcome> {
                     inputType: TextInputType.emailAddress,
                     visible: false,
                     controller: emailController,
-                    validator: (val){
-                      if (val!.isEmpty){
-                        return "Fill out this field";}
-
-                      else if(!RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)'
-                      r'|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|'
-                      r'(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$').hasMatch(val
-                      )) {
-                        return 'Please enter correct email';
-                      }
-                      return null;
-
-                    },
-
+                    validTitle: "emailVal",
 
                   ),
                   const SizedBox(
@@ -73,17 +57,7 @@ class _WelcomeState extends State<Welcome> {
                     title: 'Password',
                     visible: true,
                     controller: passController,
-                    validator: (pass){
-                      if(pass!.isEmpty){
-                        return "Password can not be empty";
-                      }
-                      else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                          .hasMatch(pass)) {
-                        return 'Must contain minimum 8 characters, at least one letter\n and one number';
-                      }
-                      return null;
-
-                    },
+                    validTitle: "pass",
                   ),
                   const SizedBox(height: 10,),
                   Container(

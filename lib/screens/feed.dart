@@ -44,14 +44,20 @@ class _FeedState extends State<Feed> {
               Text("${loggedInUser.userName}"),
               Text("${loggedInUser.userPhone}"),
               const SizedBox(height: 20,),
-              CommonButton(buttonText: "Log out", func: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context)=> const Welcome()));
-              }, btnAlign: Alignment.center),
+              CommonButton(buttonText: "Log out",btnAlign: Alignment.center, func: (){
+                logOut(context);
+              }),
             ],
           ),
         ),
         ),
       ),
+    );
+  }
+  Future<void> logOut(BuildContext context)async{
+    await FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context)=> Welcome())
     );
   }
 

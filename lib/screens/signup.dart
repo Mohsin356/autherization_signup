@@ -58,36 +58,15 @@ class _SignupState extends State<Signup> {
                         inputType: TextInputType.name,
                         visible: false,
                         controller: nameController,
-                        validator: (nameText) {
-                          if (nameText!.isEmpty) {
-                            return "Enter name";
-                          } else if (!RegExp(r"^[\p{L} ,.'-]*$",
-                                  caseSensitive: false,
-                                  unicode: true,
-                                  dotAll: true)
-                              .hasMatch(nameText)) {
-                            return "Enter valid Name";
-                          }
-                          return null;
-                        }),
+                      validTitle: 'nameText',
+                    ),
 
                     CustomTextField(
                       title: 'Email',
                       inputType: TextInputType.emailAddress,
                       visible: false,
                       controller: email,
-                      validator: (val) {
-                        if (val!.isEmpty) {
-                          return "Fill out this field";
-                        } else if (!RegExp(
-                                r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)'
-                                r'|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|'
-                                r'(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                            .hasMatch(val)) {
-                          return 'Please enter correct email';
-                        }
-                        return null;
-                      },
+                      validTitle: "emailVal",
                     ),
 
                     // buildEmailField(),
@@ -96,47 +75,19 @@ class _SignupState extends State<Signup> {
                       inputType: TextInputType.phone,
                       visible: false,
                       controller: phoneController,
-                      validator: (phNo) {
-                        if (phNo!.isEmpty) {
-                          return "Phone number can not be left";
-                        } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10,12}$)')
-                            .hasMatch(phNo)) {
-                          return 'Incorrect phone number';
-                        }
-                        return null;
-                      },
+                      validTitle: "phNo",
                     ),
                     CustomTextField(
                       title: 'Password',
                       visible: true,
                       controller: password1,
-                      validator: (pass) {
-                        if (pass!.isEmpty) {
-                          return "Password can not be empty";
-                        } else if (!RegExp(
-                                r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                            .hasMatch(pass)) {
-                          return 'Must contain minimum 8 characters, at least one letter\n and one number';
-                        }
-                        return null;
-                      },
+                      validTitle: "pass",
                     ),
                     CustomTextField(
                       title: 'Confirm Password',
                       visible: true,
                       controller: password2,
-                      validator: (pass2) {
-                        if (pass2!.isEmpty) {
-                          return "Password can not be empty";
-                        } else if (password1.text != pass2) {
-                          return "Passwords don't match";
-                        } else if (!RegExp(
-                                r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                            .hasMatch(pass2)) {
-                          return 'Must contain minimum 8 characters, at least one letter\n and one number';
-                        }
-                        return null;
-                      },
+                      validTitle: "pass2",
                     ),
                     const SizedBox(
                       height: 20,
@@ -146,7 +97,6 @@ class _SignupState extends State<Signup> {
                       btnAlign: Alignment.center,
                       func: () {
                         signUp(email.text.trim(), password1.text.trim());
-                        alertDialouge();
                       },
                     ),
 
@@ -185,10 +135,10 @@ class _SignupState extends State<Signup> {
     if (_formKey.currentState!.validate()) {
       await _auth
           .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) => postDetailsToFirestore())
-          .catchError((e) {
-        Fluttertoast.showToast(msg: e!.message);
-      });
+          .then((value) {
+          postDetailsToFirestore();
+          alertDialogue();});
+
     }
   }
 
@@ -210,7 +160,7 @@ class _SignupState extends State<Signup> {
         .doc(user.uid)
         .set(usermodel.toMap());
   }
-  void alertDialouge(){
+  void alertDialogue(){
     showDialog(
       context: context,
       builder: (BuildContext context) {
