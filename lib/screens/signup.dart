@@ -1,12 +1,10 @@
 import 'package:autherization/models/userModel.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:autherization/screens/login.dart';
 import 'package:autherization/widgets/CommonButtons.dart';
 import 'package:autherization/widgets/TextFields.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:autherization/widgets/alert.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Signup extends StatefulWidget {
@@ -104,19 +102,18 @@ class _SignupState extends State<Signup> {
                       height: 10,
                     ),
                     Center(
-                      child: RichText(
-                          text: TextSpan(
-                              text: 'Back to Login',
-                              style: const TextStyle(
-                                  color: Colors.white, fontSize: 18),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const Welcome()),
-                                  );
-                                })),
+                       child:
+                           GestureDetector(
+                             onTap : () {
+                               Navigator.push(
+                                 context,
+                                 MaterialPageRoute(
+                                     builder: (context) => const Welcome()),
+                               );
+                             },
+                             child: const Text('Back to Login',style: TextStyle(color: Colors.white, fontSize: 18,),),
+                           ),
+
                     ),
                     const SizedBox(
                       height: 10,
