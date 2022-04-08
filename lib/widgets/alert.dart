@@ -11,7 +11,6 @@ class AlertDial extends StatelessWidget {
   final Color btnClr;
   final Color btnTextClr;
 
-
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

@@ -48,12 +48,10 @@ class _WelcomeState extends State<Welcome> {
                     visible: false,
                     controller: emailController,
                     validTitle: "emailVal",
-
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  // buildEmailField(),
                   CustomTextField(
                     title: 'Password',
                     visible: true,
@@ -112,7 +110,7 @@ if(_formKey.currentState!.validate()){
       .signInWithEmailAndPassword(email: loginEmail, password: loginPass)
       .then((uid) =>{
         Fluttertoast.showToast(msg: "Login Successful"),
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Feed(),))
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>const Feed(),))
   }).catchError((e){
         Fluttertoast.showToast(msg: e!.message);
   });

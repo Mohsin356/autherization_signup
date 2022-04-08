@@ -7,7 +7,6 @@ class CommonButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback func;
   final Alignment btnAlign;
-
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -57,7 +57,7 @@ class _FeedState extends State<Feed> {
   Future<void> logOut(BuildContext context)async{
     await FirebaseAuth.instance.signOut();
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context)=> Welcome())
+      MaterialPageRoute(builder: (context)=> const Welcome())
     );
   }
 

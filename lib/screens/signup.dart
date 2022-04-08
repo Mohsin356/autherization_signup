@@ -44,7 +44,6 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
               ),
-              // buildNameField(),
               const SizedBox(
                 height: 10,
               ),
@@ -67,8 +66,6 @@ class _SignupState extends State<Signup> {
                       controller: email,
                       validTitle: "emailVal",
                     ),
-
-                    // buildEmailField(),
                     CustomTextField(
                       title: 'Phone Number',
                       inputType: TextInputType.phone,
@@ -134,10 +131,8 @@ class _SignupState extends State<Signup> {
           .then((value) {
           postDetailsToFirestore();
           alertDialogue();});
-
     }
   }
-
   void postDetailsToFirestore() async {
     //calling fireStore
     //calling user model

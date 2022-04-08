@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class UiColors{
   static const appBg= Colors.green;
   static const textColor=Colors.white;

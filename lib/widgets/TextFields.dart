@@ -9,8 +9,6 @@ class CustomTextField extends StatelessWidget {
         this.inputType,
         required this.controller,required this.visible,
         this.validTitle,
-
-
       })
       : super(key: key);
   final String title;
@@ -18,9 +16,6 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final bool visible;
   final String? validTitle;
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +46,6 @@ class CustomTextField extends StatelessWidget {
                         }
                         return null;
                       }
-                      // break;
                     case 'emailVal':
                       {
                         if (validTitle!.isEmpty) {
@@ -86,7 +80,6 @@ class CustomTextField extends StatelessWidget {
                       }
                       return null;
                     }
-
                     case "pass2":
                       {
                         if (validTitle!.isEmpty) {
@@ -99,7 +92,6 @@ class CustomTextField extends StatelessWidget {
                         }
                         return null;
                       }
-
                   }
                   return null;
                 },
