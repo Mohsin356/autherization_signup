@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:autherization/widgets/CommonButtons.dart';
-import 'package:autherization/models/userModel.dart';
+import 'package:autherization/utils/assets.dart';
 
 class Feed extends StatefulWidget {
   const Feed({Key? key}) : super(key: key);
@@ -32,14 +32,14 @@ class _FeedState extends State<Feed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: UiColors.appBg,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
           child: Column(
             children: [
               const Padding(padding: EdgeInsets.all(30)),
-              Title(color: Colors.green, child: const Text("Welcome",style: TextStyle(fontWeight: FontWeight.bold),)),
+              Title(color: UiColors.textColor, child: const Text("Welcome",style: TextStyle(fontWeight: FontWeight.bold),)),
               const SizedBox(height: 20,),
               Text("${loggedInUser.userName}"),
               Text("${loggedInUser.userPhone}"),

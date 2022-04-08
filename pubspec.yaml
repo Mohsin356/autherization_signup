@@ -57,7 +57,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/colors
+    - assets/
 
 
   # The following line ensures that the Material Icons font is

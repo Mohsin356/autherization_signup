@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:autherization/utils/assets.dart';
 
 class CustomTextField extends StatelessWidget {
 
@@ -102,17 +103,17 @@ class CustomTextField extends StatelessWidget {
                   }
                   return null;
                 },
-                style: const TextStyle(color: Colors.white),
-                cursorColor: Colors.white,
+                style: const TextStyle(color: UiColors.textColor),
+                cursorColor: UiColors.cursorClr,
                 decoration: InputDecoration(
                   labelText: title,
                   enabledBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color:Colors.white,)
+                      borderSide: BorderSide(color:UiColors.textBorderClr,)
                   ),
                   focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color:Colors.white,)
+                      borderSide: BorderSide(color:UiColors.textBorderClr,)
                   ),
-                  labelStyle: const TextStyle(color: Colors.white,
+                  labelStyle: const TextStyle(color: UiColors.textColor,
                     fontSize: 18,),
                 ),
               )),

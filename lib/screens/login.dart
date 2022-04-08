@@ -6,8 +6,7 @@ import 'package:autherization/widgets/CommonButtons.dart';
 import 'package:autherization/widgets/TextFields.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-
+import 'package:autherization/utils/assets.dart';
 
 
 class Welcome extends StatefulWidget {
@@ -27,7 +26,7 @@ class _WelcomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      backgroundColor: Colors.green,
+      backgroundColor: UiColors.appBg,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -36,7 +35,7 @@ class _WelcomeState extends State<Welcome> {
               const Center(
                 child: Text("ChatStore",textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.bold,fontSize: 60,
-                      color: Colors.white),),
+                      color: UiColors.textColor),),
               ),
               const SizedBox(height: 60,),
               Form(
@@ -67,7 +66,7 @@ class _WelcomeState extends State<Welcome> {
                     alignment: Alignment.topRight,
                     child: RichText(
                       text:  TextSpan(text: "Forgot Password?",
-                          style: const TextStyle(color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold),
+                          style: const TextStyle(color: UiColors.textColor, fontSize: 18,fontWeight: FontWeight.bold),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {}),
                     ),
@@ -82,10 +81,10 @@ class _WelcomeState extends State<Welcome> {
                     child: RichText(
                       text: TextSpan(
                           text: 'Don\'t have an account?',
-                          style: const TextStyle(color: Colors.white, fontSize: 18),
+                          style: const TextStyle(color: UiColors.textColor, fontSize: 18),
                           children: <TextSpan>[
                             TextSpan(text: ' Sign up',
-                                style: const TextStyle(color: Colors.white, fontSize: 18,
+                                style: const TextStyle(color: UiColors.textColor, fontSize: 18,
                                     fontWeight: FontWeight.bold),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {

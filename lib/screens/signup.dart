@@ -6,6 +6,7 @@ import 'package:autherization/widgets/TextFields.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:autherization/widgets/alert.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:autherization/utils/assets.dart';
 
 class Signup extends StatefulWidget {
   const Signup({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: UiColors.appBg,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -39,7 +40,7 @@ class _SignupState extends State<Signup> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 40,
-                        color: Colors.white),
+                        color: UiColors.textColor),
                   ),
                 ),
               ),
@@ -110,7 +111,7 @@ class _SignupState extends State<Signup> {
                                  MaterialPageRoute(
                                      builder: (context) => const Welcome()),);
                              },
-                             child: const Text('Back to Login',style: TextStyle(color: Colors.white, fontSize: 18,),),
+                             child: const Text('Back to Login',style: TextStyle(color: UiColors.textColor, fontSize: 18,),),
                            ),
                     ),
                     const SizedBox(

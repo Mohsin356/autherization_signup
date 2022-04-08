@@ -1,3 +1,4 @@
+import 'package:autherization/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class CommonButton extends StatelessWidget {
@@ -14,7 +15,7 @@ class CommonButton extends StatelessWidget {
       child: ElevatedButton(onPressed: func,
         child:  Text(buttonText, style: const TextStyle(fontSize: 18,),),
         style: ElevatedButton.styleFrom(
-            primary: Colors.white,onPrimary: Colors.green),
+            primary: UiColors.btnClr,onPrimary: UiColors.btnTxt),
       ),
     );
   }
