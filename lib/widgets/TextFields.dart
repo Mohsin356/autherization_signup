@@ -73,9 +73,9 @@ class CustomTextField extends StatelessWidget {
                       if (validTitle!.isEmpty) {
                         return "Password can not be empty";
                       } else if (!RegExp(
-                          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                          r'^(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$')
                           .hasMatch(validTitle)) {
-                        return 'Must contain minimum 8 characters, at least one letter\n and one number';
+                        return 'Must contain minimum 6 characters and at least one number';
                       }
                       return null;
                     }
@@ -85,9 +85,9 @@ class CustomTextField extends StatelessWidget {
                           return "Password can not be empty";
                         }
                         else if (!RegExp(
-                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            r'^(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$')
                             .hasMatch(validTitle)) {
-                          return 'Must contain minimum 8 characters, at least one letter\n and one number';
+                          return 'Must contain minimum 6 characters and at least one number';
                         }
                         return null;
                       }
