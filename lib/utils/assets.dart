@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class UiColors{
   static const appBg= Colors.green;
+  static const appBgWhite= Colors.white;
   static const textColor=Colors.white;
   static const btnClr=Colors.white;
   static const btnTxt= Colors.green;

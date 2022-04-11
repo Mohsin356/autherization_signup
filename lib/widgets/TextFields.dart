@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:autherization/utils/assets.dart';
 
 class CustomTextField extends StatelessWidget {
-
   const CustomTextField(
       {Key? key,
         required this.title,
