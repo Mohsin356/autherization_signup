@@ -75,7 +75,7 @@ class CustomTextField extends StatelessWidget {
                       } else if (!RegExp(
                           r'^(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$')
                           .hasMatch(validTitle)) {
-                        return 'Must contain minimum 6 characters and at least one number';
+                        return 'Must contain minimum one number and one character';
                       }
                       return null;
                     }
@@ -87,7 +87,7 @@ class CustomTextField extends StatelessWidget {
                         else if (!RegExp(
                             r'^(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$')
                             .hasMatch(validTitle)) {
-                          return 'Must contain minimum 6 characters and at least one number';
+                          return 'Must contain minimum one number and one character';
                         }
                         return null;
                       }
