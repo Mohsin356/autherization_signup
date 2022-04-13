@@ -62,7 +62,6 @@ class _ChatScreenState extends State<ChatScreen> {
                 child: Text("Loading"),
               );
             } else if (snapshot.hasData) {
-              var data;
               return Scaffold(
                 appBar: AppBar(
                   elevation: 0,
@@ -205,10 +204,6 @@ class _ChatScreenState extends State<ChatScreen> {
                         ),
                       ),
 
-
-
-
-
                 ]),
                 // body: Stack(
                 //   children:  [
@@ -287,7 +282,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 // ),
               );
             }
-            return Text("Error");
+            return const Text("Error");
           }),
     );
   }
