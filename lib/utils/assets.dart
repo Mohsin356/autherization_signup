@@ -8,4 +8,5 @@ class UiColors{
   static const btnTxt= Colors.green;
   static const cursorClr=Colors.white;
   static const textBorderClr=Colors.white;
+  static const iconClr =Colors.white;
 }

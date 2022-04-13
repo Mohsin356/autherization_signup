@@ -18,7 +18,7 @@ class _HomeChatState extends State<HomeChat> {
         onPressed: () {},
         child: const Icon(
           Icons.chat,
-          color: Colors.white,
+          color: UiColors.iconClr,
         ),
       ),
       body: const ListConversations(),
@@ -52,7 +52,8 @@ class _ListConversationsState extends State<ListConversations> {
           trailing: Text(user[index].time),
           onTap: (){
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context)=> const ChatScreen(docId: 'J1nOiTIrDbIz6klXzNCw'))
+                MaterialPageRoute(builder: (context)=> ChatScreen(docId:user[index].docId,
+                name: user[index].name, letter:user[index].letter))
             );
           },
         );
